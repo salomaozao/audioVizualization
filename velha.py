@@ -5,7 +5,7 @@ grid = [
     ["_", "_", "_"],
     ["_", "_", "_"],
     ["_", "_", "_"],
-] #
+]
 
 def showGrid():
     for row in grid:
@@ -21,13 +21,13 @@ def CheckWin():
             return True
         elif grid[0][row] == grid[1][row] == grid[2][row] != "_": # sequential col
             return True
-        elif grid[0][0] == grid[1][1] == grid[2][2] != "_": # diagonal rt - lb 
-            return True
-        elif grid[0][2] == grid[1][1] == grid[0][2] != "_": # diagonal lt - rb 
-            return True
+    if grid[0][0] == grid[1][1] == grid[2][2] != "_": # diagonal rt - lb 
+        return True
+    elif grid[0][2] == grid[1][1] == grid[0][2] != "_": # diagonal lt - rb 
+        return True
 
 
-def Play(player_char, coord):
+def Play(player_char, coord): #"O", [0,1]
     grid_selected = grid[int(coord[0])][int(coord[1])]
     if grid_selected == "_":
         grid[int(coord[0])][int(coord[1])] = player_char
@@ -46,8 +46,8 @@ def botPlay(player_char):
 
 def userPlay(player_char):
     while True:
-        c = input("Insira a casa desejada [ex. '0 1']:")
-
+        c = input("Insira a casa desejada [ex. '0 1']:").strip().split(" ") #["0", "1"]
+        coords = [int(c[0]), int(c[1])] #[0, 1]
         if Play(player_char, coords):
             break
 
