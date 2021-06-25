@@ -3,6 +3,10 @@
 ## Simples
 
 - Receber áudio pelo microfone
+[ Não consegui baixar pyaudio, usarei souddevice]
+
+- Pegar frequência do áudio
+
 - Fazer uma vizualização gráfica do som recebido.
 
 ## Médio
