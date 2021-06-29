@@ -19,6 +19,7 @@
       referrerpolicy="no-referrer"
     ></script>
 
+    <script src="./test.js"></script>
     <style>
       html {
         height: 100vh;
@@ -28,9 +29,33 @@
         margin: 0;
         padding: 0;
       }
+
+      .sound-box {
+        display: inline-block;
+
+        padding: 2.5em;
+        margin: 0.5em;
+
+        width: 0;
+        height: 0;
+      }
+
+      #grave {
+        background-color: rgba(255, 0, 0, 1);
+      }
+      #medio {
+        background-color: rgba(0, 255, 0, 1);
+      }
+      #agudo {
+        background-color: rgba(0, 0, 255, 1);
+      }
     </style>
 
     <script src="./vizualiser.js"></script>
   </head>
-  <body></body>
+  <body>
+    <div class="sound-box" id="grave"></div>
+    <div class="sound-box" id="medio"></div>
+    <div class="sound-box" id="agudo"></div>
+  </body>
 </html>

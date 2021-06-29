@@ -1,5 +1,5 @@
 function preload() {
-  sound = loadSound("./file_example_WAV_5MG.wav");
+  sound = loadSound("./test.js");
 }
 
 function setup() {
@@ -11,41 +11,34 @@ function setup() {
 
 function draw() {
   background(220);
-
-  /*
-  let spectrum = fft.analyze();
-  stroke(10, 10, 10);
+  noStroke();
   fill(255, 0, 255);
-  for (let i = 0; i < window.innerWidth; i++) {
-    let x = map(i, 0, window.innerWidth, 0, width);
-    let h = -height + map(spectrum[i], 0, 255, height, 0);
-    rect(x, height, width / window.innerWidth, h);
+
+  let freq = map(mouseX, 0, windowWidth, 20, 10000);
+  freq = constrain(freq, 1, 20000);
+
+  let spectrum = fft.analyze(); //Analyze creates an array with 1024 objects, each one represents a frequency
+  var graves,
+    medios,
+    agudos = 0;
+  for (let i = 0; i < spectrum.length; i++) {
+    if (spectrum[i] < 381) {
+      // Ondas Graves
+      spectrum[i] > 0 ? (graves += 0.29) : {};
+    } else if (spectrum[i] > 381 && spectrum[i] < 682) {
+      // Ondas Médias
+      spectrum[i] > 0 ? (medios += 0.29) : {};
+    } else if (spectrum[i] > 682) {
+      // Ondas Agudas
+      spectrum[i] > 0 ? (agudos += 0.29) : {};
+    }
+
+    document.getElementById("grave").style.opacity = graves / 100;
+    document.getElementById("medio").style.opacity = agudos / 100;
+    document.getElementById("agudo").style.opacity = graves / 100;
   }
-  */
 
-  /*
-  let waveform = fft.waveform();
-
-  noFill();
-  beginShape();
-  stroke(20);
-  // for (let i = 0; i < waveform.length; i++) {
-  for (let i = 0; i < window.innerWidth; i++) {
-    // let x = map(i, 0, waveform.length, 0, width);
-    let x = i;
-
-    // let y = map(waveform[i], -1, 1, 0, height);
-    let y = floor(map(waveform[i], -1, 1, 0, height));
-
-    vertex(x, y); 
-  }
-  endShape();
-  */
-
-  let analyzer = FFT.analyze();
-  for (let i = 0; i < waveform.length; i++) {
-      background.
-  }
+  stroke(255);
 }
 
 function togglePlay() {
@@ -55,4 +48,3 @@ function togglePlay() {
     sound.loop();
   }
 }
-
