@@ -1,9 +1,11 @@
 # planos:
 
+RECEPÇÃO DE ÁUDIO É MUITO MAIS FÁCIL COM UM ARDUINOX
+
 ## Simples
 
 - Receber áudio pelo microfone
-[ Não consegui baixar pyaudio, usarei souddevice]
+  [ Não consegui baixar pyaudio, usarei souddevice]
 
 - Pegar frequência do áudio
 
